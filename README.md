@@ -28,6 +28,16 @@ delete loadbalancer entries, kube config entries.
 ## Debugging
 https://github.com/kubernetes/kubernetes/issues/42559
 
+### To run in debug mode
+
+```kubefed init fellowship \
+>    --host-cluster-context=us-central \
+>    --dns-provider="google-clouddns" \
+>    --dns-zone-name="example.com." --v=8
+```
+
+v => verbose log
+8 is level, the bigger number is for deeper logs
 ### To search contents in specific context
 
 ```kubefed init fellowship \
