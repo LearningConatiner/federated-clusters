@@ -17,6 +17,11 @@ https://kubernetes.io/docs/tasks/federation/set-up-cluster-federation-kubefed/
 
 4. To get contexts `kubectl config get-contexts`
 5. To unset contexts `kubectl config unset contexts.gke_prabhatrial_us-east1-c_p` where gke_prabhatrial_us-east1-c_p is context name.
+6. Then create federation control plane.
+```
+kubefed init prabha     --host-cluster-context=gke_prabhatrial_us-west1-a_pv2     --dns-provider
+="google-clouddns"     --dns-zone-name="example.com." --v=8
+```
 
 ## clusters cleanup
 
