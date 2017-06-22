@@ -28,6 +28,32 @@ delete loadbalancer entries, kube config entries.
 ## Debugging
 https://github.com/kubernetes/kubernetes/issues/42559
 
+### kubeconfug format (should have certificate based auth instead of token based)
+
+```
+user:
+   auth-provider:
+     config:
+       cmd-args: config config-helper --format=json
+       cmd-path: /google/google-cloud-sdk/bin/gcloud
+       expiry-key: '{.credential.token_expiry}'
+       token-key: '{.credential.access_token}'
+     name: gcp
+```
+
+```
+current-context: gke_prabhatrial_us-west1-a_pv2
+kind: Config
+preferences: {}
+users:
+- name: gke_prabhatrial_us-west1-a_pv2
+  user:
+    client-certificate-data: HIDDEN
+    client-key-data: HIDDEN
+    password: fxayNGmdTnk7Ymvs
+    username: admin
+```
+
 ### To run in debug mode
 
 ```kubefed init fellowship \
