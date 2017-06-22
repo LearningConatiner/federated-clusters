@@ -1,12 +1,31 @@
-## federated-clusters
+
+# Federated cluster set up
+
+## Steps
+
+1. create clusters with required properties.
+
+2. Do below,
+```
+$ gcloud config set container/use_client_certificate True
+$ export CLOUDSDK_CONTAINER_USE_CLIENT_CERTIFICATE=True
+$ gcloud container clusters get-credentials <cluster name> --zone=us-west1-a --project=<project name>
+```
+
+3. Install kubefed
+https://kubernetes.io/docs/tasks/federation/set-up-cluster-federation-kubefed/
+
+4. To get contexts `kubectl config get-contexts`
+5. To unset contexts `kubectl config unset contexts.gke_prabhatrial_us-east1-c_p` where gke_prabhatrial_us-east1-c_p is context name.
+
+## clusters cleanup
 
 While deleting cluster, node, 
 
 delete loadbalancer entries, kube config entries.
 
 
-
-Debugging
+## Debugging
 https://github.com/kubernetes/kubernetes/issues/42559
 
 ### To search contents in specific context
